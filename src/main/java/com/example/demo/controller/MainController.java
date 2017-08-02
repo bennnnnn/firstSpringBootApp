@@ -1,12 +1,13 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@RestController
-public class GreetingContoller {
+@Controller
+public class MainController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
@@ -19,11 +20,20 @@ public class GreetingContoller {
     }
 
 
+    @RequestMapping("/index")
+
+    public  String  index(Model model){
+        model.addAttribute("message", "Hello");
+
+        return  "hello";
+    }
+
     @RequestMapping("/addProduct")
-    public  String  addProduct(){
 
+    public  String  addProduct(Model model){
+       model.addAttribute("message", "Adding products");
 
-        return  "Add a product here";
+        return  "Adding products";
     }
 
 
