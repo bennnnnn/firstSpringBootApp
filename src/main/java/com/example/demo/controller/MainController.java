@@ -1,12 +1,11 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-@Controller
+@RestController 
 public class MainController {
 
     private static final String template = "Hello, %s!";
@@ -20,20 +19,12 @@ public class MainController {
     }
 
 
-    @RequestMapping("/index")
-
-    public  String  index(Model model){
-        model.addAttribute("message", "Hello");
-
-        return  "hello";
-    }
-
     @RequestMapping("/addProduct")
 
-    public  String  addProduct(Model model){
-       model.addAttribute("message", "Adding products");
+    public  String  addProduct(){
 
-        return  "Adding products";
+
+        return  "Add a product here";
     }
 
 
